@@ -8,7 +8,15 @@ main()
 {
   echo "$$" > $PID_FILE
   dump ">>> clockette: running. <prefix> + [C-x] to kill."
-  tmux bind M-x tmux run-shell 'kill -s KILL $(cat $PID_FILE ) \; dump ">> Stopping clockette."' 
+  tmux bind M-x run-shell killit 
+}
+
+killit()
+{
+  dump ">> killing clockette..."
+  kill -s KILL "$( cat $PID_FILE )"
+  [[ -f "$PID_FILE" ]] && rm -f "$PID_FILE" || fatal "/tmp/clockette.pid not found"
+  dump ">> /tmp/clockette.pid deleted."
 }
 
 main
