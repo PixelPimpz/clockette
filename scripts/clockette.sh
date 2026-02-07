@@ -11,7 +11,9 @@ main()
   tmux bind M-x run-shell "killit" 
   dump ">>> clockette: running. <prefix> + [C-x] to kill."
   read -r -a time <<< $( date "+%l %M %P" )
-  dump ">> hour: ${time[0]}"
+  dump ">> hour:   ${time[0]}"
+  dump ">> minute: ${time[1]}"
+  dump ">> suffix: ${time[2]}"
 }
 
 killit()
