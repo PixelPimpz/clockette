@@ -10,10 +10,11 @@ main()
   echo "$$" > $PID_FILE
   tmux bind M-x run-shell "killit" 
   dump ">>> clockette: running. <prefix> + [C-x] to kill."
-  read -r -a time <<< $( date "+%l %M %P" )
-  dump ">> hour:   ${time[0]}"
-  dump ">> minute: ${time[1]}"
-  dump ">> suffix: ${time[2]}"
+  read -r -a TIME <<< $( date "+%l %M %S %P" )
+  dump ">> hour:   ${TIME[0]}"
+  dump ">> minute: ${TIME[1]}"
+  dump ">> second: ${TIME[2]}"
+  dump ">> suffix: ${TIME[3]}"
 }
 
 killit()
