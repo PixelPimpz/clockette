@@ -11,7 +11,7 @@ main()
   tmux bind M-x run-shell "killit" 
   dump ">>> clockette: running. <prefix> + [C-x] to kill."
   read -r -a TIME <<< $( date "+%l %M %S %P" )
-  tmux set -g '@clocklette' "${TIME[0]}:${TIME[1]}:${TIME[3]}"
+  tmux set -g '@clockette' "${TIME[0]}:${TIME[1]}:${TIME[3]}"
   dump ">> hour:   ${TIME[0]}"
   dump ">> minute: ${TIME[1]}"
   dump ">> second: ${TIME[2]}"
