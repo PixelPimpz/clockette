@@ -9,5 +9,6 @@ if [[ ! -f $PID_FILE  || -z $PID_FILE ]]; then
   tmux run-shell -b "$LOCAL_ROOT/scripts/clockette.sh"
 else
   dump ">> Clockette is already running. \"Let it be.\" --The Beatles"
+  dump ">> pid: $( cat /tmp/clockette.pid )"
   exit 0
 fi
