@@ -6,9 +6,12 @@ trap fatal EXIT
 
 main()
 {
+  local time=
   echo "$$" > $PID_FILE
+  tmux bind M-x run-shell "killit" 
   dump ">>> clockette: running. <prefix> + [C-x] to kill."
-  tmux bind M-x run-shell killit 
+  read -r -A time <<< $( date "+%l %M %P" )
+  dump ">> hour: ${time[1]}"
 }
 
 killit()
