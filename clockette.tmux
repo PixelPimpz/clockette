@@ -6,12 +6,10 @@ dump "hello"
 touch $PID_FILE
 tmux bind M-c run-shell "$LOCAL_ROOT/scripts/clockette.sh"
 #tmux bind M-x run-shell "$LOCAL_ROOT/scripts/killit.sh
-if [[ ! -f $PID_FILE  || ! -s $PID_FILE ]]; then
-  rm -f $PID_FILE
-  dump ">>> starting clockette..."
-  tmux run-shell "$LOCAL_ROOT/scripts/clockette.sh"
-else
+if [[ -s $PID_FILE ]]; then #if file exists and size > 0
   dump ">> Clockette is already running. \"Let it be.\" --The Beatles"
   dump ">> pid: $( cat /tmp/clockette.pid )"
   exit 0
 fi
+dump ">>> starting clockette..."
+tmux run-shell "$LOCAL_ROOT/scripts/clockette.sh"
