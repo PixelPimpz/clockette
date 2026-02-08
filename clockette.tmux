@@ -2,6 +2,7 @@
 PID_FILE="/tmp/clockette.pid"
 LOCAL_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$( tmux show -gqv @CHER )/dump.fun"
+dump "hello"
 touch $PID_FILE
 tmux bind M-c run-shell "$LOCAL_ROOT/scripts/clockette.sh"
 #tmux bind M-x run-shell "$LOCAL_ROOT/scripts/killit.sh
