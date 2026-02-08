@@ -11,4 +11,4 @@ if [[ -s $PID_FILE ]]; then #if file exists and size > 0
   exit 0
 fi
 dump ">>> starting clockette..."
-tmux run-shell "$LOCAL_ROOT/scripts/clockette.sh"
+tmux run-shell -b "$LOCAL_ROOT/scripts/clockette.sh"
