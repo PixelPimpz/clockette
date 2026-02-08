@@ -8,7 +8,8 @@ tmux bind M-c run-shell "$LOCAL_ROOT/scripts/clockette.sh"
 #tmux bind M-x run-shell "$LOCAL_ROOT/scripts/killit.sh
 if [[ ! -f $PID_FILE  || -z $PID_FILE ]]; then
   rm -f $PID_FILE
-  tmux run-shell -b "$LOCAL_ROOT/scripts/clockette.sh"
+  dump ">>> starting clockette..."
+  tmux run-shell "$LOCAL_ROOT/scripts/clockette.sh"
 else
   dump ">> Clockette is already running. \"Let it be.\" --The Beatles"
   dump ">> pid: $( cat /tmp/clockette.pid )"
