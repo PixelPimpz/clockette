@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 PID_FILE="/tmp/clockette.pid"
-source "$( tmux show -gqv @CHER )/dump.fun"
-source "$( tmux show -gqv @CHER )/fatal.fun"
+SHARE="$( tmux show -gqv @CHER )"
+source "$SHARE/dump.fun"
+source "$SHARE/fatal.fun"
 trap fatal EXIT
 
 main()
 {
   local time=
   echo "$$" > $PID_FILE
-  tmux bind M-x run-shell "killit.sh"
   dump ">>> clockette: running."
   read -r -a TIME <<< $( date "+%l %M %S %P" )
   tmux set -g '@clockette' "${TIME[0]}:${TIME[1]}:${TIME[3]}"
