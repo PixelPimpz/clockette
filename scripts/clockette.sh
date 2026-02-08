@@ -5,6 +5,6 @@ source "$SHARE/fatal.fun"
 dump ">>> scripts/clockette.sh running..."
 
 
-tmux set -g @clockette "time"
+tmux set -g @clockette "%l#[blink]:#[noblink]%H%P"
 tmux source "$TMUX_ROOT/tmux.conf"
 tmux refresh-client
