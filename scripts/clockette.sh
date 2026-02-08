@@ -9,7 +9,7 @@ main()
   local time=
   echo "$$" > $PID_FILE
   tmux bind M-x run-shell "killit.sh"
-  dump ">>> clockette: running. <prefix> + [C-x] to kill."
+  dump ">>> clockette: running."
   read -r -a TIME <<< $( date "+%l %M %S %P" )
   tmux set -g '@clockette' "${TIME[0]}:${TIME[1]}:${TIME[3]}"
   dump ">> hour:   ${TIME[0]}"
