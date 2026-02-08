@@ -7,8 +7,8 @@ dump ">>> scripts/clockette.sh running..."
 main()
 {
   echo "$$" > "/tmp/clockette.pid"
+  tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
   while true; do
-    tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
     tmux refresh-client
     sleep 5
   done
