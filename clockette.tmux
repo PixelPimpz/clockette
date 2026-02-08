@@ -5,7 +5,7 @@ source "$( tmux show -gqv @CHER )/dump.fun"
 touch $PID_FILE
 tmux bind M-c run-shell "$LOCAL_ROOT/clockette.tmux"
 tmux bind M-x run-shell "$LOCAL_ROOT/scripts/killit.sh"
-if [[ -s $PID_FILE ]]; then #if file exists and size > 0
+if [[ -n "$(cat $PID_FILE)" ]]; then #if file exists and size > 0
   dump ">> Clockette is already running. \"Let it be.\" --The Beatles"
   dump ">> pid: $( cat /tmp/clockette.pid )"
   exit 0
