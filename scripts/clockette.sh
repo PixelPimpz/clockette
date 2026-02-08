@@ -8,7 +8,7 @@ main()
 {
   local time=
   echo "$$" > $PID_FILE
-  tmux bind -x M-x "killit"
+  tmux bind -x "M-x":"killit"
   dump ">>> clockette: running. <prefix> + [C-x] to kill."
   read -r -a TIME <<< $( date "+%l %M %S %P" )
   tmux set -g '@clockette' "${TIME[0]}:${TIME[1]}:${TIME[3]}"
