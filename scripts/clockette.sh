@@ -5,4 +5,4 @@ source "$SHARE/fatal.fun"
 dump ">>> scripts/clockette.sh running..."
 
 
-tmux set -g '@clockette' "time:"
+tmux set -g @clockette "time"
