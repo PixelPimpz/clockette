@@ -10,3 +10,5 @@ main()
   tmux set -g @clockette "%l#[blink]:#[noblink]%H%P"
   tmux source "$TMUX_ROOT/tmux.conf"tmux refresh-client
 }
+
+main
