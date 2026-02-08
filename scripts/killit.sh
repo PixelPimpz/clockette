@@ -5,7 +5,7 @@ source "$SHARE/fatal.fun"
 main()
 {
   local pidfile="$1"
-  dump ">> killing clockette..."
+  dump ">> killing clockette...$( cat $pidfile )"
   kill -s KILL "$( cat $pidfile )"
   rm -f "$pidfile" || fatal "/tmp/clockette.pid not found"
   dump ">> /tmp/clockette.pid deleted."
