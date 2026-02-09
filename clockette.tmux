@@ -6,8 +6,8 @@ tmux bind M-c run-shell "$LOCAL_ROOT/clockette.tmux"
 tmux bind M-x run-shell "$LOCAL_ROOT/scripts/killit.sh"
 main()
 {
-  local pid=$( cat "$PID_FILE" ) 2>/dev/null  || pid=''
-  if [[ -n "$pid" && "$pid" =~ ^[0-9]+$ && kill -0 $pid 2>/dev/null ]]; then #if file exists and size > 0
+  local pid=$( cat "$PID_FILE" ) 2>/dev/null || pid=''
+  if [[ -n "$pid" && "$pid" =~ ^[0-9]+$ && kill -0 $pid 2>/dev/null ]]; then 
     dump ">> Clockette is already running. \"Let it be.\" --The Beatles"
     dump ">> pid: $( cat /tmp/clockette.pid )"
   else
