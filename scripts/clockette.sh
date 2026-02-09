@@ -13,7 +13,7 @@ main()
     read -r -A timedate <<< "$( date +%l %M %S %p %a %m %d %Y )"
     dump ">> timedate.size: ${#timedate[@]}"
     dump ">> timedate.hour: ${timedate[0]}"
-    dump ">> icon: $(getIcon ${timedate[0]}"
+    dump ">> icon: $( getIcon ${timedate[0]} )"
     tmux refresh-client
     tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
     sleep 5
