@@ -7,7 +7,7 @@ tmux bind M-x run-shell "$LOCAL_ROOT/scripts/killit.sh"
 main()
 {
   local pid=$( cat "$PID_FILE" ) 2>/dev/null || pid=''
-  if [[ -n "$pid" && "$pid" =~ ^[0-9]+$ && kill -s 0 $pid 2>/dev/null ]]; then 
+  if [[ -n "$pid" && "$pid" =~ ^[0-9]+$ && kill --signal 0 $pid 2>/dev/null ]]; then 
     dump ">> Clockette is already running. \"Let it be.\" --The Beatles"
     dump ">> pid: $( cat /tmp/clockette.pid )"
   else
