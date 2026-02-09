@@ -7,7 +7,7 @@ source "$SHARE/fatal.fun"
 main()
 {
   dump ">> killing clockette..."
-  local pid="$( cat /tmp/clockette.pid )"
+  local pid=$( cat "/tmp/clockette.pid" )
   dump ">> $( cat /tmp/clockette.pid )" 
   dump ">> $( $pid )" 
   kill -s TERM $pid || fatal "SIGKILL failed"
