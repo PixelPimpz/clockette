@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-PID_FILE=$1
+PID_FILE=/tmp/clockette.pid
 SHARE=$( tmux show -gqv @CHER )
 source "$SHARE/dump.fun"
 source "$SHARE/fatal.fun"
 
 main()
 {
-  local pid="$( cat $PID_FILE )"
   dump ">> killing clockette..."
-  dump "$pid"
+  dump ">> $( cat /tmp/clockette.pid )" 
   kill -s KILL $pid || fatal "SIGKILL failed"
   rm -f "$PID_FILE" || fatal "/tmp/clockette.pid not found"
   dump ">> /tmp/clockette.pid deleted."
