@@ -11,9 +11,9 @@ main()
   while true; do
     read -r -A timedate <<< "$( date +%l %M %S %p %a %m %d %Y )"
     local H="${timedate[0]}"
-    local clock_hex="$CLOCK"
-    local clock_utf8=""
-    tmux set -g @clock "icon"
+    local clock_hex="(( CLOCK + H ))"
+    local clock_utf8="${clock_hex/0x/\\U}"
+    tmux set -g @clock_utf8 "(( clock_hex + H - 1 ))"
     dump ">> timedate.size: ${#timedate[@]}"
     dump ">> timedate.hour: ${timedate[0]}"
     tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
