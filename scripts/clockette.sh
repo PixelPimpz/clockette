@@ -8,16 +8,18 @@ dump ">>> scripts/clockette.sh running..."
 main()
 {
   echo "$$" > "/tmp/clockette.pid"
-  icon_base_hex=0xF143F
   while true; do
     read -r -A timedate <<< "$( date +%l %M %S %p %a %m %d %Y )"
+    local H="${timedate[0]}"
+    local clock_hex="$CLOCK"
+    local clock_utf8=""
+    tmux set -g @clock "icon"
     dump ">> timedate.size: ${#timedate[@]}"
     dump ">> timedate.hour: ${timedate[0]}"
-    dump ">> icon: $( getIcon ${timedate[0]} )"
-    tmux refresh-client
     tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
+    tmux refresh-client
     sleep 5
-  done
+  donpoz
 }
 
 getIcon()
