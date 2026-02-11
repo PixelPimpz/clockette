@@ -19,7 +19,7 @@ main()
     tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
     tmux refresh-client
     sleep 5
-  donpoz
+  done 
 }
 
 getIcon()

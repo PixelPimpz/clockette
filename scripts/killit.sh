@@ -7,7 +7,7 @@ main()
 {
   dump ">> killing clockette..."
   local pid=$( cat "/tmp/clockette.pid" ) || pid=''
-  if [[ -n "$pid" && $pid =~ ^[0-9]+$ && kill -0 $pid 2>/dev/null ]]; then
+  if [[ -n "$pid" && $pid =~ ^[0-9]+$ ]] && kill -0 $pid 2>/dev/null; then
     kill -s TERM $pid && dump "clockette terminated"
   else
     dump "SIGTERM failed. Clockette was probably not running"
