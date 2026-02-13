@@ -14,6 +14,7 @@ main()
     local clock_hex="(( CLOCK + H ))"
     local clock_utf8="${clock_hex/0x/\\U}"
     tmux set -g @clock_utf8 "(( clock_hex + H - 1 ))"
+    dump ">> clock_hex $clock_hex"
     dump ">> timedate.size: ${#timedate[@]}"
     dump ">> timedate.hour: ${timedate[0]}"
     tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
