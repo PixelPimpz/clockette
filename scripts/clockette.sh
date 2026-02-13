@@ -9,7 +9,7 @@ main()
 {
   echo "$$" > "/tmp/clockette.pid"
   while true; do
-    read -r -a timedate <<< "$( date +%l %M %S %p %a %m %d %Y )"
+    read -r -a timedate <<< $( date "+%l %M %S %p %a %m %d %Y" )
     local H="${timedate[0]}"
     local clock_hex="(( CLOCK + H ))"
     local clock_utf8="${clock_hex/0x/\\U}"
