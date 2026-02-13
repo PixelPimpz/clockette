@@ -12,8 +12,7 @@ main()
     read -r -a timedate <<< $( date "+%l %M %S %p %a %m %d %Y" )
     local H="${timedate[0]}"
     local clock_utf8=$(printf '\\U%X' "$(( CLOCK + H ))")
-    tmux set -g @clock_utf8 "(( clock_hex + H - 1 ))"
-    dump ">> clock_hex $clock_hex"
+    dump ">> clock_utf8 $clock_utf8"
     dump ">> timedate.size: ${#timedate[@]}"
     dump ">> timedate.hour: ${timedate[0]}"
     tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
