@@ -10,7 +10,7 @@ main()
   echo "$$" > "/tmp/clockette.pid"
   while true; do
     read -r -a timedate <<< $( date "+%l %M %S %p %a %m %d %Y" )
-    local interval=$(( 60 - ${timedate[2]} + 59 - ${timedate[1]} * 60 ))
+    local interval=$(( 60 - ${timedate[2]} - 59 - ${timedate[1]} * 60 ))
     dump ">> interval: $interval"
     local clock_utf8=$( printf '\\U%X' "$(( CLOCK + "${timedate[0]}" - 1 ))" )
     local clock_icon=$( echo -e "$clock_utf8" )
