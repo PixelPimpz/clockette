@@ -25,7 +25,7 @@ main()
 getIcon()
 {
   local hour="$1" || local hour = 0
-  clock_hex=(( 0xF143F + $hour ))
+  clock_hex=$(( 0xF143F + $hour ))
   clock_utf8= "${clock_hex/0x/\\U}"
   dump ">> clock_utf8: $clock_utf8"
   echo "$clock_utf8"
