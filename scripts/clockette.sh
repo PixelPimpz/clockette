@@ -17,7 +17,7 @@ main()
     dump ">> clock_icon $clock_icon"
     dump ">> timedate.size: ${#timedate[@]}"
     dump ">> timedate.hour: ${timedate[0]}"
-    tmux set -g @clockette "%l#[blink]:#[noblink]%M%P"
+    tmux set -g @clockette "${clock_icon} %l#[blink]:#[noblink]%M%P"
     tmux refresh-client
     sleep 5
   done 
