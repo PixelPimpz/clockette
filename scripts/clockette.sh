@@ -11,7 +11,7 @@ main()
   while true; do
     read -r -a timedate <<< $( date "+%l %M %S %p %a %m %d %Y" )
     local H="${timedate[0]}"
-    local clock_utf8=$(printf '\\U%X' "$(( CLOCK + H ))")
+    local clock_utf8=$(printf '\\U%X' "$(( CLOCK + H - 1 ))")
     dump ">> clock_utf8 $clock_utf8"
     dump ">> timedate.size: ${#timedate[@]}"
     dump ">> timedate.hour: ${timedate[0]}"
