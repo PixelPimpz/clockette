@@ -10,10 +10,10 @@ main()
   echo "$$" > "/tmp/clockette.pid"
   while true; do
     read -r -a timedate <<< $( date "+%l %M %S %p %a %m %d %Y" )
-    local seconds="10#${timedate[2]}"
-    local minutes="10#${timedate[1]}"
-    local s2nm=$(( ( 60 - seconds ) % 60 )) 
-    local m2nh=$(( 59 - minutes )) 
+    #local seconds="10#${timedate[2]}"
+    #local minutes="10#${timedate[1]}"
+    local s2nm=$(( ( 60 - "10#${timedate[2]}" ) % 60 )) 
+    local m2nh=$(( 59 - "10#${timedate[1]}" )) 
     local interval=$(( s2nm + m2nh * 60 ))
     dump ">> interval: $interval"
     local clock_utf8=$( printf '\\U%X' "$(( CLOCK + "${timedate[0]}" - 1 ))" )
