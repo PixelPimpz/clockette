@@ -13,8 +13,8 @@ main()
     local seconds="10#${timedate[2]}"
     local minutes="10#${timedate[1]}"
     local s2nm=$(( ( 60 - seconds ) % 60 )) 
-    local m2nh=$(( 60 - minutes )) 
-    local interval=$(( s2nm + m2nh))
+    local m2nh=$(( 59 - minutes )) 
+    local interval=$(( s2nm + m2nh * 60 ))
     dump ">> interval: $interval"
     local clock_utf8=$( printf '\\U%X' "$(( CLOCK + "${timedate[0]}" - 1 ))" )
     local clock_icon=$( echo -e "$clock_utf8" )
