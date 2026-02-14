@@ -15,9 +15,8 @@ main()
     local interval=$(( s2nm + m2nh * 60 ))
 
     dump ">> interval: $interval"
-    #local clock_utf8=$( printf -e '\\U%X' "$(( CLOCK + "${timedate[0]}" - 1 ))" )
-    local clock=$( printf -e "\\U%X" "$(( CLOCK + "${timedate[1]}" - 1 ))" )
-    #local clock_icon=$( echo -e "$clock_utf8" )
+    local clock_utf8=$( printf -e '\\U%X' "$(( CLOCK + "${timedate[0]}" - 1 ))" )
+    local clock=$( echo -e "$clock_utf8" )
     tmux set -g @clockette "${clock} %l#[blink]:#[noblink]%M%P"
     tmux refresh-client
     sleep 5
