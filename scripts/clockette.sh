@@ -17,9 +17,10 @@ main()
     dump ">> interval: $interval"
     local clock_utf8=$( printf  '\\U%X' "$(( CLOCK + "${timedate[0]}" - 1 ))" )
     local clock=$( echo -e "$clock_utf8" )
-    tmux set -g @clockette "${clock} %l#[blink]:#[noblink]%M%P"
+    tmux set -g @clockette "#{@HemiL}" 
+    tmux set -ag @clockette "${clock} %l#[blink]:#[noblink]%M%P"
     tmux refresh-client
-    sleep 5
+    sleep $iZZnterval
   done 
 }
 
