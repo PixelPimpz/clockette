@@ -20,7 +20,7 @@ main()
     tmux set -g @clockette "#{@HemiL}" 
     tmux set -ag @clockette "${clock} %l#[blink]:#[noblink]%M%P"
     tmux refresh-client
-    sleep $iZZnterval
+    sleep $interval
   done 
 }
 
