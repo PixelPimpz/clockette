@@ -10,7 +10,7 @@ main()
   echo "$$" > "/tmp/clockette.pid"
   while true; do
     read -r -a timedate <<< $( date "+%l %M %S %p %a %m %d %Y" )
-    local twoday=$("${timedate[4]:0:2}")
+    local twoday="${timedate[4]:0:2}"
     local s2nm=$(( ( 60 - "10#${timedate[2]}" ) % 60 )) 
     local m2nh=$(( 59 - "10#${timedate[1]}" )) 
     local interval=$(( s2nm + m2nh * 60 ))
