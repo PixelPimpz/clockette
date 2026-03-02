@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 PID_FILE="/tmp/clockette.pid"
 LOCAL_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "$( tmux show -gqv @CHER )/dump.fun"
+source "$( tmux show -gqv @CHER )/fun/dump.fun"
 tmux bind M-c run-shell "$LOCAL_ROOT/clockette.tmux"
 tmux bind M-x run-shell "$LOCAL_ROOT/scripts/killit.sh"
 main()
