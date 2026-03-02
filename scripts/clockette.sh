@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 SHARE=$( tmux show -gqv @CHER )
 CLOCK="0xF143F"
-source "$SHARE/dump.fun"
-source "$SHARE/fatal.fun"
-dump ">>> scripts/clockette.sh running..."
+source "$SHARE/fun/dump.fun"
+source "$SHARE/fun/fatal.fun"
+dump ">>> scripts/clockette.sh running..." -a
 
 main()
 {
